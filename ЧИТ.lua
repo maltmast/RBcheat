@@ -29,20 +29,25 @@ SectionGod:NewButton("Попробовать", "Включить бессмер�
 end)
 
 SectionGod:NewButton("Попробовать 2 вариант", "Включить бессмертие", function()
-	game.Players.LocalPlayer.Character.Humanoid.MaxHealth = math.huge
-	game.Players.LocalPlayer.Character.Humanoid.Health = math.huge
+    game.Players.LocalPlayer.Character.Humanoid.MaxHealth = math.huge
+    game.Players.LocalPlayer.Character.Humanoid.Health = math.huge
 end)
 
 
 local Tab2 = Window:NewTab("НастройЧиты")
 local SectionSS = Tab2:NewSection("Настроить скорость")
 
-SectionSS:NewSlider("Скорость", "SliderInfo", 500, 0, function(s)
+SectionSS:NewSlider("Скорость", "Настроить скорость", 500, 0, function(s)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
 
-SectionSS:NewSlider("Сила прыжка", "SliderInfo", 500, 0, function(s)
+SectionSS:NewSlider("Высота прыжка", "Настроить высоту прыжка", 500, 0, function(s)
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+SectionSS:NewSlider("Кол-во жизней", "Настроить кол-во жизней", 1000, 0, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.MaxHealth = s
+    game.Players.LocalPlayer.Character.Humanoid.Health = s
 end)
 
 local SectionBack = Tab2:NewSection("Настройки по умолчанию")
@@ -51,11 +56,18 @@ SectionBack:NewButton("Вернуть скорость", "Вернуть ско�
 	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 20
 end)
 
-SectionBack:NewButton("Вернуть силу прыжка", "Вернуть силу прыжка на нормальную", function()
+SectionBack:NewButton("Вернуть высоту прыжка", "Вернуть силу прыжка на нормальную", function()
 	game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
 end)
+
+SectionBack:NewButton("Откл. GodMode", "Отключить бессмертие", function()
+	game.Players.LocalPlayer.Character.Humanoid.MaxHealth = 100
+	game.Players.LocalPlayer.Character.Humanoid.Health = 100
+)
 
 SectionBack:NewButton("Вернуть всё", "Вернуть всё на нормальное", function()
 	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 20
 	game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+	game.Players.LocalPlayer.Character.Humanoid.MaxHealth = 100
+	game.Players.LocalPlayer.Character.Humanoid.Health = 100
 end)
